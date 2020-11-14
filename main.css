@@ -6,6 +6,11 @@
     --darkerColour: #2C2D42;
 }
 
+*{
+
+    box-sizing: border-box;
+}
+
 body {
     background-color: var(--lightColour);
 }
@@ -16,16 +21,21 @@ body {
 
 .slides{
 
-    text-align: center;
-    background-color: var(--darkColour);
-    margin: 20px;
+   display: block;
+   padding: 15px;
+   float: top;
+   padding: 10px;
 
 }
 
-img{
+#pslides{
 
-    width: auto;
+    height: 40vh;
+    width: 50vh;
+    margin: auto;
+
 }
+
 
 
 h1, h3 {
