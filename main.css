@@ -5,9 +5,9 @@
     --darkColour: #352A6B;
 }
 
-* {
+/* * {
     background-color: var(--lightColour);
-}
+} */
 
 h1, h3 {
     font-family: var(--mainFont);
@@ -16,9 +16,10 @@ h1, h3 {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+
 body {
 
-    background-color: #c9e4e7;
+    background-color: var(--lightColour);
 
 }
 
