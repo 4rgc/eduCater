@@ -18,3 +18,6 @@ div.comment > p {
     font-family: var(--mainFont);
     color: var(--medColour);
 }
+.bg {
+    background-color: var(--medColour) !important; 
+}
