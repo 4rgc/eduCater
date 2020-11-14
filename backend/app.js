@@ -1,18 +1,29 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var apiRouter = require('./routes/api');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const apiRouter = require('./routes/api');
 
+
+// PORT env to be used in server or 3000 default if none exists
 const PORT = process.env.PORT || 3000;
+const mongoose = require('mongoose');
+require('dotenv').config();
 
 var app = express();
 
+// Server available at this PORT
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+
+mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true });
+const db = mongoose.connection;
+db.on('error', (error) => console.error(error));
+db.once('open', (error) => console.log('Connected to Database'));
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
