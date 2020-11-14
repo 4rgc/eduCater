@@ -3,3 +3,48 @@ h1 {
     color: #352A6B;
 }
 
+body {
+
+    background-color: #c9e4e7;
+
+}
+
+form{
+
+    margin: 40px;
+    padding: 7px;
+    border: 3px solid white;
+    background-color: white;
+    box-shadow: 1px 5px 5px #352A6B;
+    border-radius: 10px;
+
+}
+
+input[type=text], input[type=password]{
+
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid grey;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button{
+
+    background-color: #477CE5;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover{
+
+    opacity: 0.8;
+
+}
+
