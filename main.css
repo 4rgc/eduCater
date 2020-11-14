@@ -1,5 +1,5 @@
 :root {
-    --mainFont: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    --mainFont: 'Limelight';
     --lightColour: #C9E4E7;
     --medColour: #477CE5;
     --darkColour: #352A6B;
@@ -10,6 +10,10 @@ body {
     background-color: var(--lightColour);
 }
 
+.text-center{
+
+    margin: 10px;
+}
 
 
 h1, h3 {
@@ -17,7 +21,7 @@ h1, h3 {
     color: var(--darkColour);
     font-weight: bolder;
     font-size: 70px;
-    text-shadow: 2px 2px 5px #2C2D42;
+    text-shadow: 3px 3px white;
 }
 
 nav{
