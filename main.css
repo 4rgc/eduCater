@@ -1,8 +1,14 @@
-h1 {
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+:root {
+    --mainFont: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    --lightColour: #C9E4E7;
+}
+
+h1, h3 {
+    font-family: var(--mainFont);
     color: #352A6B;
 }
 
+<<<<<<< HEAD
 body {
 
     background-color: #c9e4e7;
@@ -48,3 +54,8 @@ button:hover{
 
 }
 
+=======
+p.comment {
+
+}
+>>>>>>> frontend
