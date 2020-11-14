@@ -14,10 +14,17 @@ body {
     margin: 10px;
 }
 
-.mbutton{
+.slides{
 
-    display: inline-block;
-    margin: 5px;
+    text-align: center;
+    background-color: var(--darkColour);
+    margin: 20px;
+
+}
+
+img{
+
+    width: auto;
 }
 
 
@@ -83,7 +90,7 @@ input[type=text], input[type=password], input[type=email]{
 
 }
 
-button{
+.lgbutton{
 
     background-color: #477CE5;
     color: white;
