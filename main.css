@@ -1,13 +1,20 @@
 :root {
     --mainFont: "Palatino Linotype", "Book Antiqua", Palatino, serif;
     --lightColour: #C9E4E7;
+    --medColour: #477CE5;
+    --darkColour: #352A6B;
+}
+
+* {
+    background-color: var(--lightColour);
 }
 
 h1, h3 {
     font-family: var(--mainFont);
-    color: #352A6B;
+    color: var(--darkColour);
 }
 
-p.comment {
-
+div.comment > p {
+    font-family: var(--mainFont);
+    color: var(--medColour);
 }
