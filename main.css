@@ -3,38 +3,59 @@
     --lightColour: #C9E4E7;
     --medColour: #477CE5;
     --darkColour: #352A6B;
+    --darkerColour: #2C2D42;
 }
 
-/* * {
+body {
     background-color: var(--lightColour);
-} */
+}
+
+
 
 h1, h3 {
     font-family: var(--mainFont);
     color: var(--darkColour);
+    font-weight: bolder;
+    font-size: 70px;
+    text-shadow: 2px 2px 5px #2C2D42;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+nav{
 
-body {
-
-    background-color: var(--lightColour);
-
+    background-color: #2C2D42;
 }
+
 
 form{
 
-    margin: 40px;
-    padding: 7px;
+    margin: 50px;
+    padding: 15px;
     border: 3px solid white;
     background-color: white;
-    box-shadow: 1px 5px 5px #352A6B;
+    box-shadow: 1px 5px 10px #352A6B;
     border-radius: 10px;
+    display: block;
 
 }
 
-input[type=text], input[type=password]{
+b{
+
+    background-color: white;
+}
+
+label{
+
+    background-color: white;
+    
+}
+
+.container{
+
+    background-color: white;
+
+}
+
+input[type=text], input[type=password], input[type=email]{
 
     width: 100%;
     padding: 12px 20px;
@@ -43,6 +64,14 @@ input[type=text], input[type=password]{
     border: 1px solid grey;
     border-radius: 5px;
     box-sizing: border-box;
+    background-color: white;
+}
+
+.email{
+
+    display: none;
+    width: 100%;
+
 }
 
 button{
@@ -59,6 +88,25 @@ button{
 button:hover{
 
     opacity: 0.8;
+
+}
+
+#signup{
+
+   
+    background-color: white;
+    color: #477CE5;
+    border: white;
+    padding: 2px;
+    box-shadow: none;
+    text-shadow: none;
+    display: inline-block;
+
+}
+
+.subox{
+
+    text-align: center;
 
 }
 

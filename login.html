@@ -6,21 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="main.css">
+  <script src="login.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#">login</a>
-        </li>
-      </ul>  
-</nav>
   
-<div class="text-center" style="margin-bottom:0">
+<div class="text-center">
   <h1>eduCater</h1> 
 </div>
 
@@ -33,12 +27,23 @@
     
         <label for="psw"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="psw" required>
-    
+
+        <div id = "email" class = "email">
+
+            <label for="eml"><b>Email</b></label>
+            <input type="email" placeholder="Enter Email" name="eml" required>
+
+        </div>
         <button type="submit">Login</button>
+
         <label>
           <input type="checkbox" checked="checked" name="remember"> Remember me
         </label>
-      </div>
+        <div class="subox">
+            <label id= "signup" type= "button" onclick="signUp()"> Don't have an account? Click here to sign up!</label>
+        </div>
+
+    </div>
     
       <div class="container" style="background-color:#f1f1f1">
 
