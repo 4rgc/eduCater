@@ -1,0 +1,3 @@
+function getSlideNum() {
+    // to implement!!
+}

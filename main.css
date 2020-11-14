@@ -11,7 +11,6 @@ body {
 }
 
 .text-center{
-
     margin: 10px;
 }
 
@@ -114,20 +113,15 @@ button:hover{
 
 }
 
-=======
 p.comment {
 
 }
->>>>>>> frontend
-=======
+
 div.comment > p {
     font-family: var(--mainFont);
     color: var(--medColour);
 }
-<<<<<<< HEAD
->>>>>>> frontend
-=======
+
 .bg {
     background-color: var(--medColour) !important; 
 }
->>>>>>> frontend
