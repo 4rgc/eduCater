@@ -120,4 +120,10 @@ div.comment > p {
     font-family: var(--mainFont);
     color: var(--medColour);
 }
+<<<<<<< HEAD
+>>>>>>> frontend
+=======
+.bg {
+    background-color: var(--medColour) !important; 
+}
 >>>>>>> frontend
