@@ -8,7 +8,11 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var apiRouter = require('./routes/api');
 
+const PORT = process.env.PORT || 3000;
+
 var app = express();
+
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
