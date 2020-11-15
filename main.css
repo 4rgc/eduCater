@@ -145,7 +145,7 @@ li {
 	background-color: var(--darkColour);
 	vertical-align: text-bottom;
 	padding-left: 1.25vw;
-	padding-top: 1.563%;
+	padding-top: 1%;
 	padding-bottom: 1.5%;
     box-shadow: 0 4px 2px -2px var(--lightColour);
     text-decoration: none;
@@ -180,6 +180,7 @@ li {
 
 .nav-option-selected {
 	border-bottom: 1px solid var(--white);
+	margin-left: 10%;
 }
 
 .nav-option-selected a {
