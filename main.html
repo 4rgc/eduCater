@@ -13,12 +13,12 @@
 			rel="stylesheet"
 			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
 			/>
-    <script src="main.js"></script>
-    <script src="comments.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js"></script>
+   
+    	<script src="comments.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top justify-content-end">
@@ -29,18 +29,12 @@
 				</li>
 			</ul>
 		</nav>
-		<div class="pl-10 text-center" style= "margin-top:80px" >
-			<div class="container p-10 m-10">
-				<h1 class="display-4">eduCater</h1>
-				<p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-			</div>
-		</div>
-		<div class="container-fluid pl-0 ml-0">
+		<div class="container-fluid pl-0 ml-0"  style= "margin-top:80px">
 		<div class="row">
-			<div class="slides col-lg-9 pr-0">
+			<div class="slides col-xl-9" id = "pdf">
 				<div id="my_pdf_viewer">
 					<div id="canvas_container">
-						<canvas id="pdf_renderer"></canvas>
+						<canvas id="pdf_render"></canvas>
 					</div>
 				</div>
 				<div id="navigation_controls">
@@ -49,7 +43,7 @@
 					<button id="go_next">Next</button>
 				</div>
 			</div>
-			<div class="col-lg-3" id = "comments">
+			<div class="col-xl-3" id = "comments">
 				<div class = "row">
 					<div class="media border p-3" id = 0>
 						<img src="https://www.pcgamesn.com/wp-content/uploads/2020/07/lol-yone-champ-900x506.jpg" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
@@ -90,5 +84,7 @@
 				</div>
 			</div>
 		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js"></script>
+		<script src="main.js"></script>
 	</body>
 </html>
