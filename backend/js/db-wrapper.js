@@ -61,7 +61,7 @@ module.exports = class DbWrapper {
 		});
 	}
 
-	static async insertUser({ name, password, email }) {
+	static async insertUser({ name, email, role, token }) {
 		return new Promise((resolve, reject) => {
 			database
 				.db(process.env.DB_NAME)
@@ -69,9 +69,9 @@ module.exports = class DbWrapper {
 				.insertOne(
 					{
 						name: name,
-						password: password,
 						email: email,
-						_id: new ObjectId(),
+						role: role,
+						token: token,
 					},
 					(err) => {
 						if (err) reject(err);
