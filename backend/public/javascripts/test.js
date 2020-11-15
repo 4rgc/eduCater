@@ -77,6 +77,29 @@ function onLogout() {
 		});
 }
 
+function onRegister() {
+	const name = document.getElementById('name').value;
+
+	const email = document.getElementById('email').value;
+	const password = document.getElementById('password').value;
+
+	firebase
+		.auth()
+		.createUserWithEmailAndPassword(email, password)
+		.then((cred) => {
+			if (!cred.user) console.error('Could not register');
+			cred.user.getIdToken().then((token) => {
+				httpPostAsync(
+					'/register',
+					`name=${name}&email=${email}&token=${token}`,
+					(res) => {
+						console.log(res);
+					}
+				);
+			});
+		});
+}
+
 firebase.auth().onAuthStateChanged(function (user) {
 	if (user) {
 		user.getIdToken().then(function (idToken) {
