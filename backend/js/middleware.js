@@ -7,9 +7,8 @@ const map = { s: 0, t: 1, r: 2 };
 
 const getPrivilege = (token) => {
 	return new Promise((resolve, reject) => {
-		dbWrapper.getUsersByToken(token).then((users) => {
-			console.log('got users: ' + users);
-			if (users[0]) resolve(users[0].role);
+		dbWrapper.getUserByToken(token).then((user) => {
+			if (user) resolve(user.role);
 			else reject('Token not found');
 		});
 	});
@@ -34,7 +33,9 @@ const checkPrivilegeGet = (req, res, next, filter) => {
 			});
 
 		if (filter[0] == '!' && filter[1] != userPrivilege) return next();
-		if (map[userPrivilege] >= map[filter]) return next();
+		if (filter[0] == '<' && map[filter[1]] > map[userPrivilege]) next();
+		if (filter[0] == '>' && map[filter[1]] > map[userPrivilege]) next();
+		if (userPrivilege >= filter) return next();
 		else
 			res.json({
 				success: false,
@@ -60,7 +61,10 @@ const checkPrivilegePost = (req, res, next, filter) => {
 			});
 
 		if (filter[0] == '!' && filter[1] != userPrivilege) next();
-		if (map[userPrivilege] >= map[filter]) next();
+		if (filter[0] == '<' && map[filter[1]] >= map[userPrivilege]) next();
+		if (filter[0] == '>' && map[filter[1]] <= map[userPrivilege]) next();
+		console.log(userPrivilege + ' ' + filter);
+		if (userPrivilege == filter) next();
 		else
 			res.json({
 				success: false,
@@ -101,14 +105,6 @@ function checkNotStudentGet(req, res, next) {
 }
 
 module.exports = {
-	checkRepPost,
-	checkTeacherPost,
-	checkNotTeacherPost,
-	checkStudentPost,
-	checkNotStudentPost,
-	checkRepGet,
-	checkTeacherGet,
-	checkNotTeacherGet,
-	checkStudentGet,
-	checkNotStudentGet,
+	checkPrivilegePost,
+	checkPrivilegeGet,
 };
