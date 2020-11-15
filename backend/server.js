@@ -8,7 +8,7 @@ client.connect().then(db => database = db)
 module.exports = class DbWrapper {
     static getUserByName(name) {
         return new Promise((resolve, reject) => {
-            database.db(process.env.DB_NAME).collection(process.env.USERS)
+            database.db(process.env.DB_NAME).collection(process.env.DB_COLLEC_USERS)
                 .find({name : name})
                 .toArray((err, res) => {
                 if(err)
@@ -20,7 +20,7 @@ module.exports = class DbWrapper {
 
     static getUserByEmail(email) {
         return new Promise((resolve, reject) => {
-            database.db(process.env.DB_NAME).collection(process.env.USERS)
+            database.db(process.env.DB_NAME).collection(process.env.DB_COLLEC_USERS)
                 .find({email: email})
                 .toArray((err, res) => {
                 if(err)
@@ -32,7 +32,7 @@ module.exports = class DbWrapper {
 
     static async insertUser({name, password, email}) {
         return new Promise((resolve, reject) => {
-            database.db(process.env.DB_NAME).collection(process.env.USERS)
+            database.db(process.env.DB_NAME).collection(process.env.DB_COLLEC_USERS)
                     .insertOne(
                         {
                             name: name,
@@ -46,5 +46,48 @@ module.exports = class DbWrapper {
                     }
             );
         });
+    }
+
+    static async insertComment({_id, name, course, text, slide}) {
+        return new Promise((resolve, reject) => {
+            database.db(process.env.DB_NAME).collection(process.env.DB_COLLEC_COMMENT)
+                    .insertOne(
+                        {
+                            _id: _id,
+                            name: name,
+                            course: course,
+                            text: text,
+                            slide: slide
+                        }, (err) => {
+                            if(err)
+                                reject(err)
+                            resolve()
+                    }
+            );
+        });
+    }
+
+    static getCommentsBySlides(slide) {
+        return new Promise((resolve, reject) => {
+            database.db(process.env.DB_NAME).collection(process.env.DB_COLLEC_COMMENT)
+                .find({slide: slide})
+                .toArray((err, res) => {
+                if(err)
+                    reject(err)
+                resolve(res);
+            });
+        })
+    }
+
+    static getCommentByUser(_id) {
+        return new Promise((resolve, reject) => {
+            database.db(process.env.DB_NAME).collection(process.env.DB_COLLEC_COMMENT)
+                .find({_id: _id})
+                .toArray((err, res) => {
+                if(err)
+                    reject(err)
+                resolve(res);
+            });
+        })
     }
 }
