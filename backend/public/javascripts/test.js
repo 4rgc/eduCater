@@ -122,6 +122,31 @@ function getCoursesEnrolled() {
 		});
 }
 
+function onPostComment() {
+	let topLeft = {
+		x: 0.1,
+		y: 0.1,
+	};
+
+	let bottomRight = { x: 0.6, y: 0.6 };
+	firebase
+		.auth()
+		.currentUser.getIdToken()
+		.then((token) => {
+			httpPostAsync(
+				'/api/postComment',
+				`token=${token}&material_id=5fb13023d40c58d4e280811d&user_id=5fb0e2495c07648e7d026226&contents=lolololol&datePosted=${JSON.stringify(
+					new Date()
+				)}&slideNumber=1&topLeft=${JSON.stringify(
+					topLeft
+				)}&bottomRight=${JSON.stringify(bottomRight)}`,
+				(res) => {
+					console.log('got the response: ' + res);
+				}
+			);
+		});
+}
+
 firebase.auth().onAuthStateChanged(function (user) {
 	if (user) {
 		user.getIdToken().then(function (idToken) {
