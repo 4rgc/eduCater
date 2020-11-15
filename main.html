@@ -50,10 +50,10 @@
 	</div>
 	<div class="container-fluid pl-0 ml-0">
 		<div class="row">
-			<div class="slides col-lg-9 pr-0">
+			<div class="slides col-xl-9" id = "pdf">
 				<div id="my_pdf_viewer">
 					<div id="canvas_container">
-						<canvas id="pdf_renderer"></canvas>
+						<canvas id="pdf_render"></canvas>
 					</div>
 				</div>
 				<div id="navigation_controls">
@@ -62,12 +62,11 @@
 					<button id="go_next">Next</button>
 				</div>
 			</div>
-			<div class="col-lg-3" id="comments">
-				<div class="row">
-					<div class="media border p-3" id=0>
-						<img src="https://www.pcgamesn.com/wp-content/uploads/2020/07/lol-yone-champ-900x506.jpg"
-							alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
-						<div class="media-body" id=1>
+			<div class="col-xl-3" id = "comments">
+				<div class = "row">
+					<div class="media border p-3" id = 0>
+						<img src="https://www.pcgamesn.com/wp-content/uploads/2020/07/lol-yone-champ-900x506.jpg" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+						<div class = "media-body" id  = 1>
 							<h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
 								ut labore et dolore magna aliqua.</p>
@@ -117,6 +116,7 @@
 				</div>
 			</div>
 		</div>
-</body>
-
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js"></script>
+		<script src="main.js"></script>
+	</body>
 </html>
