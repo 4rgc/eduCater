@@ -1,12 +1,14 @@
 :root {
     --mainFont: 'Limelight';
+    --lightestHue: white;
+    --lightHue: grey;
     --lightColour: #C9E4E7;
     --medColour: #477CE5;
     --darkColour: #352A6B;
     --darkerColour: #2C2D42;
 }
 
-*{
+* {
 
     box-sizing: border-box;
 }
@@ -42,12 +44,12 @@ h1, h3 {
     color: var(--darkColour);
     font-weight: bolder;
     font-size: 70px;
-    text-shadow: 3px 3px white;
+    text-shadow: 3px 3px var(--lightestHue);
 }
 
 nav{
 
-    background-color: #2C2D42;
+    background-color: var(--darkerColour);
 }
 
 
@@ -55,28 +57,11 @@ form{
 
     margin: 80px;
     padding: 15px;
-    border: 3px solid white;
-    background-color: white;
-    box-shadow: 1px 5px 10px #352A6B;
+    border: 3px solid var(--lightestHue);
+    background-color: var(--lightestHue);
+    box-shadow: 1px 5px 10px var(--darkColour);
     border-radius: 10px;
     display: block;
-
-}
-
-b{
-
-    background-color: white;
-}
-
-label{
-
-    background-color: white;
-    
-}
-
-.container{
-
-    background-color: white;
 
 }
 
@@ -86,10 +71,10 @@ input[type=text], input[type=password], input[type=email]{
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
-    border: 1px solid grey;
+    border: 1px solid var(--lightHue);
     border-radius: 5px;
     box-sizing: border-box;
-    background-color: white;
+    background-color: var(--lightestHue);
 }
 
 .email{
@@ -101,8 +86,8 @@ input[type=text], input[type=password], input[type=email]{
 
 .lgbutton{
 
-    background-color: #477CE5;
-    color: white;
+    background-color: var(--med);
+    color: var(--lightestHue);
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
@@ -119,9 +104,9 @@ button:hover{
 #signup{
 
    
-    background-color: white;
-    color: #477CE5;
-    border: white;
+    background-color: var(--lightestHue);
+    color: var(--medColour);
+    border: var(--lightestHue);
     padding: 2px;
     box-shadow: none;
     text-shadow: none;
