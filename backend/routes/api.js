@@ -2,9 +2,11 @@ var express = require('express');
 var router = express.Router();
 var path = require('path');
 
-const teacherRouter = require('./roles/teacher');
+const commentsRouter = require('./comments');
+const coursesRouter = require('./courses');
 
-router.use('/', teacherRouter);
+router.use('/', commentsRouter);
+router.use('/', coursesRouter);
 
 router.get('/test', (req, res) => {
 	res.sendFile(path.join(__dirname, '../public/test.html'));

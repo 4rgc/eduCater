@@ -60,11 +60,13 @@ const checkPrivilegePost = (req, res, next, filter) => {
 				message: 'Bad db record',
 			});
 
-		if (filter[0] == '!' && filter[1] != userPrivilege) next();
-		if (filter[0] == '<' && map[filter[1]] >= map[userPrivilege]) next();
-		if (filter[0] == '>' && map[filter[1]] <= map[userPrivilege]) next();
+		if (filter[0] == '!' && filter[1] != userPrivilege) return next();
+		if (filter[0] == '<' && map[filter[1]] >= map[userPrivilege])
+			return next();
+		if (filter[0] == '>' && map[filter[1]] <= map[userPrivilege])
+			return next();
 		console.log(userPrivilege + ' ' + filter);
-		if (userPrivilege == filter) next();
+		if (userPrivilege == filter) return next();
 		else
 			res.json({
 				success: false,
