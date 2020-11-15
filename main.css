@@ -155,7 +155,6 @@ li {
 	margin-left: 5.5%;
 	text-transform: uppercase;
 	font-size: 0.9em;
-	border-bottom: 1px solid transparent;
 	transition: border-bottom 0.5s;
 }
 
@@ -177,10 +176,12 @@ li {
 	margin-left: 10%;
 }
 
+.nav-option-selected {
+	border-bottom: 1px solid var(--white);
+}
+
 .nav-option-selected a {
 	color: var(--white);
-	border-bottom: 1px solid var(--white);
-	margin-left: 10%;
 }
 
 .nav-text-selected {
@@ -201,7 +202,16 @@ li {
 }
 
 .right-side {
-	margin-top: 20px;
 	margin-right: 3%;
-	color: var(--lightestHue);
+}
+
+.imgContainer > img {
+	width: 40px;
+	height: 40px;
+}
+
+.imgContainer {
+	/* display: inline-block; */
+	float: left;
+	background-color: #1e1e26;
 }
