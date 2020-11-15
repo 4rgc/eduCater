@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase.js"></script>
+    <script>
+        var config = {
+            apiKey: "AIzaSyCYkmfBgqP88evrb2ZK2ajiQI5El0_DWGA",
+            authDomain: "educater-295704.firebaseapp.com",
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="/javascripts/front.js"></script>
+</head>
+<body>
+    <h1>hey</h1>
+    <button onclick="addCourse()">/api/addCourse</button>
+    <button onclick="changePLink()">/api/changePLink</button>
+    <button onclick="getMaterialLink()">/api/getMaterialLink</button>
+    <button onclick="addTeacher()">/api/addTeacher</button>
+    <button onclick="getCoursesTeaching()">/api/getCoursesTeaching</button>
+    <button onclick="getCoursesEnrolled()">/api/getCoursesEnrolled</button>
+
+    <div id="container">
+        <embed type="application/pdf" src="/assets/testdoc1.pdf" width="500" height="375">
+    </div>
+
+    <div id="message">Loading...</div>
+
+    <form action="#" >
+        <input type="name" id="name" name="name" placeholder="Full name"><br>
+        <input type="email" id="email" name="email" placeholder="E-mail"><br>
+        <input type="password" id="password" name="password" placeholder="Password"><br><br>
+        <input type="button" value="Log in" id="login" onclick="onLogin()">
+        <input type="button" value="Log out" id="logout" onclick="onLogout()">
+        <input type="button" value="Register" id="register" onclick="onRegister()">
+    </form>
+    <br />
+    <a href="/api/test2">Test2</a>
+
+</body>
+<script src="/javascripts/test.js"></script>
+</html>
