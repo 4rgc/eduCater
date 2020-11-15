@@ -132,3 +132,7 @@ div.comment > p {
 .bg {
     background-color: var(--medColour) !important; 
 }
+
+li {
+    margin: 10px;
+}
