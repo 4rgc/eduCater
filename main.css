@@ -130,6 +130,10 @@ li {
 	background-color: var(--lightColour);
 }
 
+#signup:hover {
+    text-decoration: underline;
+}
+
 /* ********************************************* */
 /* ********************************************* */
 /* APPENDED CSS */
