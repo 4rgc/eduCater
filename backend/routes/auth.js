@@ -32,4 +32,17 @@ router.post('/logout', (req, res, next) => {
 	});
 });
 
+router.post('/register', (req, res, next) => {
+	const token = req.body.token;
+	const email = req.body.email;
+	const name = req.body.name;
+
+	dbWrapper.insertUser({ email, token, name, role: 's' }).then((user) => {
+		res.json({
+			success: true,
+			user: user,
+		});
+	});
+});
+
 module.exports = router;
