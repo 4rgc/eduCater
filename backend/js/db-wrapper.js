@@ -36,7 +36,7 @@ module.exports = class DbWrapper {
 		});
 	}
 
-	static getUsersByEmail(email) {
+	static getUserByEmail(email) {
 		return new Promise((resolve, reject) => {
 			database
 				.db(process.env.DB_NAME)
@@ -44,7 +44,7 @@ module.exports = class DbWrapper {
 				.find({ email: email })
 				.toArray((err, res) => {
 					if (err) reject(err);
-					resolve(res);
+					resolve(res[0]);
 				});
 		});
 	}
@@ -107,24 +107,31 @@ module.exports = class DbWrapper {
 		});
 	}
 
-	static async insertComment({ _id, name, course, text, slide }) {
+	static insertComment({
+		user_id,
+		contents,
+		datePosted,
+		slideNumber,
+		topLeft,
+		bottomRight,
+	}) {
 		return new Promise((resolve, reject) => {
 			database
 				.db(process.env.DB_NAME)
 				.collection(process.env.DB_COLLEC_COMMENTS)
-				.insertOne(
-					{
-						_id: _id,
-						name: name,
-						course: course,
-						text: text,
-						slide: slide,
-					},
-					(err) => {
-						if (err) reject(err);
-						resolve();
-					}
-				);
+				.insertOne({
+					user_id: user_id,
+					contents: contents,
+					datePosted: datePosted,
+					replies: [],
+					slideNumber: slideNumber,
+					topLeft: topLeft,
+					bottomRight: bottomRight,
+				})
+				.then((result, err) => {
+					if (err) reject(err);
+					resolve(result);
+				});
 		});
 	}
 
@@ -167,6 +174,39 @@ module.exports = class DbWrapper {
 		});
 	}
 
+	static updateMaterial(_id, params) {
+		return new Promise((resolve, reject) => {
+			database
+				.db(process.env.DB_NAME)
+				.collection(process.env.DB_COLLEC_MATERIALS)
+				.updateOne({ _id: _id }, params, (err, res) => {
+					if (err) reject(err);
+					resolve(res);
+				});
+		});
+	}
+
+	static insertCourse(values) {
+		return new Promise((resolve, reject) => {
+			database
+				.db(process.env.DB_NAME)
+				.collection(process.env.DB_COLLEC_COURSES)
+				.insertOne(
+					{
+						name: values.name,
+						courseCode: values.courseCode,
+						teacher_id: values.teacher_id,
+						studentList: [],
+						materials: [],
+					},
+					(err) => {
+						if (err) reject(err);
+						resolve();
+					}
+				);
+		});
+	}
+
 	static getCourse(_id) {
 		return new Promise((resolve, reject) => {
 			database
@@ -189,6 +229,30 @@ module.exports = class DbWrapper {
 				.toArray((err, res) => {
 					if (err) reject(err);
 					resolve(res);
+				});
+		});
+	}
+
+	static updateCourse(_id, params) {
+		return new Promise((resolve, reject) => {
+			database
+				.db(process.env.DB_NAME)
+				.collection(process.env.DB_COLLEC_COURSES)
+				.updateOne({ _id }, params, (err, res) => {
+					if (err) reject(err);
+					resolve(res);
+				});
+		});
+	}
+
+	static insertMaterial(params) {
+		return new Promise((resolve, reject) => {
+			database
+				.db(process.env.DB_NAME)
+				.collection(process.env.DB_COLLEC_MATERIALS)
+				.insertOne({ ...params, comments: [] }, (err) => {
+					if (err) reject(err);
+					resolve();
 				});
 		});
 	}
