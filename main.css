@@ -132,3 +132,74 @@ div.comment > p {
 li {
     margin: 10px;
 }
+
+/* ********************************************* */
+/* ********************************************* */
+/* APPENDED CSS */
+* {
+	box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+body {
+	background-color: #333542;
+	background-size: 100vw;
+	font-family: "Lato", sans-serif;
+	margin: 0px;
+}
+
+.nav-wrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	background-color: #1e1e26;
+	vertical-align: text-bottom;
+	padding-left: 1.25vw;
+	padding-top: 1.563%;
+	padding-bottom: 1.5%;
+}
+
+.nav-link-wrapper {
+	margin-top: 20px;
+	margin-left: 5.5%;
+	text-transform: uppercase;
+	font-size: 0.9em;
+	border-bottom: 1px solid transparent;
+	transition: border-bottom 0.5s;
+}
+
+.nav-link-wrapper a {
+	color: #8a8a8a;
+	text-decoration: none;
+	transition: color 0.5s;
+}
+
+.nav-link-wrapper:hover {
+	border-bottom: 1px solid white;
+}
+
+.nav-link-wrapper a:hover {
+	color: white;
+}
+
+.select-div {
+	margin-left: 5.5%;
+	margin-top: 20px;
+}
+
+.brand {
+	float: right;
+}
+
+.left-side {
+	display: flex;
+}
+
+.right-side {
+	margin-top: 20px;
+	margin-right: 3%;
+	color: white;
+}
