@@ -1,61 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <title>eduCater</title>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="stylesheet" href="main.css" />
-      <link
-         rel="stylesheet"
-         href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-         />
-      <link
-         rel="stylesheet"
-         href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-         />
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-   </head>
-   <body>
-      <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top justify-content-end">
-         <ul class="navbar-nav ">
-            <li class="nav-item bg-dark">
-               <button type="button" class="btn btn-primary">SignUp</button>
-               <button type="button" class="btn btn-primary">Login</button>
-            </li>
-         </ul>
-      </nav>
-      <div class="container-fluid"  style= "margin-top:80px">
-      <div class="row">
-         <div class="slides col-xl-8" id = "pdf">
-            <div id="my_pdf_viewer">
-               <div id="canvas_container">
-                  <canvas id="pdf_render"></canvas>
-               </div>
-            </div>
-            <div id="navigation_controls">
-               <button id="go_previous">Previous</button>
-               <input id="current_page" value="1" type="number">
-               <button id="go_next">Next</button>
-            </div>
-         </div>
-         <div class="col-xl-3">
-            <div class = "row border" id = "comments">
-            </div>
-            <div class ='row'>
-               <div class = 'col-xl-12'>
-                  <div class ='form-group'>
-                     <br>
-                     <textarea class="form-control rounded" rows="5" id="comment_block" name="text" style="resize: none;"></textarea>
-                  </div>
-                  <button onclick="submitComment()" type="button" id="comment" class="btn btn-primary disabled" disabled>Comment</button>
-               </div>
-            </div>
-         </div>
-      </div>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js"></script>
-      <script src="main.js"></script>
-      <script src="comments.js"></script>
-   </body>
+
+<head>
+	<title>eduCater</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="main.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body class="back-ground">
+	<!-- NAV BAR BEGIN -->
+	<div class="nav-container">
+		<div class="nav-wrapper">
+			<div class="left-side">
+				<div class="nav-link-wrapper nav-option">
+					<a href="main.html">Course</a>
+				</div>
+				<div class="nav-link-wrapper nav-option">
+					<a href="myCourses.html">Selection</a>
+				</div>
+				<div class="nav-link-wrapper nav-option-selected">
+					<a class="nav-text-selected" href="myProfile.html">Profile</a>
+				</div>
+			</div>
+
+			<div class="right-side">
+				<div>
+					<div class="imgContainer">
+						<img src="./images/logo-transparent.png">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- NAV BAR END -->
+	<div class="container-fluid" style="margin-top:80px">
+		<div class="row">
+			<div class="slides col-xl-8" id="pdf">
+				<div id="my_pdf_viewer">
+					<div id="canvas_container">
+						<canvas id="pdf_render"></canvas>
+					</div>
+				</div>
+				<div id="navigation_controls">
+					<button id="go_previous">Previous</button>
+					<input id="current_page" value="1" type="number">
+					<button id="go_next">Next</button>
+				</div>
+			</div>
+			<div class="col-xl-3">
+				<div class="row border" id="comments">
+				</div>
+				<div class='row'>
+					<div class='col-xl-12'>
+						<div class='form-group'>
+							<br>
+							<textarea class="form-control rounded" rows="5" id="comment_block" name="text"
+								style="resize: none;"></textarea>
+						</div>
+						<button onclick="submitComment()" type="button" id="comment" class="btn btn-primary disabled"
+							disabled>Comment</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js"></script>
+		<script src="main.js"></script>
+		<script src="comments.js"></script>
+</body>
+
 </html>
