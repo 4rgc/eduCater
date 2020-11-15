@@ -10,26 +10,28 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
     <script src="myCourses.js"></script>
+    <script src="myProfile.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 
     <body style="background-image: url('URL TO GO HERE');">
+        <!-- Nav bar -->
         <div class="nav-container">
-            <div class="nav-wrapper" style="box-shadow: 0 4px 2px -2px grey;">   
+            <div class="nav-wrapper">
                 <div class="left-side">
-                    <div class="nav-link-wrapper" style="margin-left: 10%;">
-                        <a href="main.html">Course</a>
+                    <div class="nav-link-wrapper nav-option-selected">
+                        <a class="nav-text-selected">Course</a>
                     </div>
-                    <div class="nav-link-wrapper" style="border-bottom: 1px solid white; margin-left: 10%;">
-                        <a href="main.html" style="color:white";>Selection</a>
+                    <div class="nav-link-wrapper nav-option">
+                        <a href="main.html">Selection</a>
                     </div>
-                    <div class="nav-link-wrapper" style="margin-left: 10%;">
-                        <a href="myProfile.html";">Profile</a>
+                    <div class="nav-link-wrapper nav-option">
+                        <a" href="myProfile.html">Profile</a>
                     </div>
                 </div>
-                
+    
                 <div class="right-side">
                     <div>
                         <div class="brand">
@@ -38,9 +40,7 @@
                     </div>
                 </div>
             </div>
-    
         </div>
-
         <!-- Actual content -->
         <form>
             <h2 id="course"><b>Course 1</b></h2>
@@ -69,7 +69,12 @@
                     </div>
                 </div>
             </div>
-        </form>
+            <!-- Professor-exclusive! Add another lecture slideshow -->
+            <div class="row">
+                <button type="button" class="btn-sm btn-primary" id="add-lecture" hidden>Add Lecture</button>
+            </div>
+        </div>
+    </form>
 </body>
 
 </html>

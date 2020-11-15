@@ -16,27 +16,31 @@
 </head>
 
 <body onload="getUser()">
-    <!-- Navigation bar -->
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item bg-dark">
-                <button type="button" class="btn btn-primary">SignUp</button>
-                <button type="button" class="btn btn-primary">Login</button>
-            </li>
-        </ul>
-    </nav>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item bg-dark">
-                <button type="button" class="btn btn-primary">SignUp</button>
-                <button type="button" class="btn btn-primary">Login</button>
-            </li>
-        </ul>
-    </nav>
-    <!-- Actual content -->
-    <div class="text-center">
-        <h1>eduCater</h1>
+    <!-- Nav bar -->
+    <div class="nav-container">
+        <div class="nav-wrapper">
+            <div class="left-side">
+                <div class="nav-link-wrapper nav-option">
+                    <a href="main.html">Course</a>
+                </div>
+                <div class="nav-link-wrapper nav-option">
+                    <a href="main.html">Selection</a>
+                </div>
+                <div class="nav-link-wrapper nav-option-selected">
+                    <a class="nav-text-selected" href="myProfile.html">Profile</a>
+                </div>
+            </div>
+
+            <div class="right-side">
+                <div>
+                    <div class="brand">
+                        <div class="hideIfSmall" class="right-side">eduCator</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <!-- Actual content -->
     <form>
         <div class="container row">
             <div class="col lg-6">
@@ -57,8 +61,10 @@
                         <a href="">Course 2</a>
                     </li>
                 </ul>
-            <button type="button" class="btn-sm btn-primary" id="edit" onclick="editProfile()">Edit profile</button>
-        </div>
+                <button type="button" class="btn-sm btn-primary" id="edit" onclick="editProfile()">Edit profile</button>
+                <!-- Professor-exclusive! Add lecture recording button -->
+                <button type="button" class="btn-sm btn-primary" id="add-lecture" hidden>Add Lecture</button>
+            </div>
     </form>
 </body>
 

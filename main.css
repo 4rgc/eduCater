@@ -2,10 +2,14 @@
     --mainFont: 'Limelight';
     --lightestHue: white;
     --lightHue: grey;
-    --lightColour: #C9E4E7;
+    /* --lightColour: #C9E4E7;
     --medColour: #477CE5;
     --darkColour: #352A6B;
-    --darkerColour: #2C2D42;
+    --darkerColour: #2C2D42; */
+    --lightColour: #8a8a8a ;
+    --medColour: #333542;
+    --darkColour: #1e1e26;
+    --darkerColour: #1e1e26;
 }
 
 * {
@@ -14,7 +18,10 @@
 }
 
 body {
-    background-color: var(--lightColour);
+    background-color: var(--medColour);
+    background-size: 100vw;
+	font-family: "Lato", sans-serif;
+	margin: 0px;
 }
 
 .text-center{
@@ -133,33 +140,32 @@ li {
     margin: 10px;
 }
 
+.back-ground {
+    background-color: var(--lightColour);
+}
+
+#comments {
+    background-color: var(--lightestHue);
+}
+
 /* ********************************************* */
 /* ********************************************* */
 /* APPENDED CSS */
-* {
-	box-sizing: border-box;
-}
 
 ::-webkit-scrollbar {
 	display: none;
-}
-
-body {
-	background-color: #333542;
-	background-size: 100vw;
-	font-family: "Lato", sans-serif;
-	margin: 0px;
 }
 
 .nav-wrapper {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	background-color: #1e1e26;
+	background-color: var(--darkColour);
 	vertical-align: text-bottom;
 	padding-left: 1.25vw;
 	padding-top: 1.563%;
-	padding-bottom: 1.5%;
+    padding-bottom: 1.5%;
+    box-shadow: 0 4px 2px -2px var(--lightColour);
 }
 
 .nav-link-wrapper {
@@ -172,17 +178,30 @@ body {
 }
 
 .nav-link-wrapper a {
-	color: #8a8a8a;
+	color: var(--lightColour);
 	text-decoration: none;
 	transition: color 0.5s;
 }
 
 .nav-link-wrapper:hover {
-	border-bottom: 1px solid white;
+	border-bottom: 1px solid var(--lightestHue);
 }
 
 .nav-link-wrapper a:hover {
-	color: white;
+	color: var(--lightestHue);
+}
+
+.nav-option {
+    margin-left: 10%;
+}
+
+.nav-option-selected {
+    border-bottom: 1px solid var(--lightestHue);
+    margin-left: 10%;
+}
+
+.nav-text-selected {
+    color: var(--lightestHue);
 }
 
 .select-div {
@@ -201,5 +220,5 @@ body {
 .right-side {
 	margin-top: 20px;
 	margin-right: 3%;
-	color: white;
+	color: var(--lightestHue);
 }
