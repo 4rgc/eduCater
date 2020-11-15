@@ -8,7 +8,7 @@ router.post('/login', (req, res, next) => {
 	const token = req.body.token;
 	dbWrapper.getUsersByEmail(email).then((user) => {
 		console.log(user);
-		dbWrapper.updateUser(user[0]._id, {
+		dbWrapper.updateUser(user._id, {
 			token: token,
 		});
 	});
