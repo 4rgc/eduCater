@@ -1,163 +1,163 @@
 function addCourse() {
-	let name, code;
+    let name, code;
 
-	httpPostAsync('/api/addCourse', `name=${name}&code=${code}`, (res) => {
-		console.log('got the response: ' + res);
-	});
+    httpPostAsync("/api/addCourse", `name=${name}&code=${code}`, (res) => {
+        console.log("got the response: " + res);
+    });
 }
 
 function changePLink() {}
 
 function getMaterialLink() {
-	let id = 0;
+    let id = 0;
 
-	httpGetAsync(`/api/getPLink?id=${id}`, (res) => {
-		console.log('got the response: ' + res);
+    httpGetAsync(`/api/getPLink?id=${id}`, (res) => {
+        console.log("got the response: " + res);
 
-		let obj = JSON.parse(res);
-		if (!obj['success']) throw new Error('Wrong id');
+        let obj = JSON.parse(res);
+        if (!obj["success"]) throw new Error("Wrong id");
 
-		let iframe = document.createElement('iframe');
-		iframe.src = obj.link;
-		iframe.type = 'application/pdf';
-		document.getElementById('container').appendChild(iframe);
-	});
+        let iframe = document.createElement("iframe");
+        iframe.src = obj.link;
+        iframe.type = "application/pdf";
+        document.getElementById("container").appendChild(iframe);
+    });
 }
 
 function addTeacher() {
-	firebase
-		.auth()
-		.currentUser.getIdToken()
-		.then((token) => {
-			let name = 'Bro Broski';
+    firebase
+        .auth()
+        .currentUser.getIdToken()
+        .then((token) => {
+            let name = "Bro Broski";
 
-			httpPostAsync(
-				'/api/addTeacher',
-				`name=${name}&token=${token}`,
-				(res) => {
-					console.log('got the response: ' + res);
-				}
-			);
-		});
+            httpPostAsync(
+                "/api/addTeacher",
+                `name=${name}&token=${token}`,
+                (res) => {
+                    console.log("got the response: " + res);
+                }
+            );
+        });
 }
 
 function onLogin() {
-	const email = document.getElementById('email').value;
-	const password = document.getElementById('password').value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
-	firebase
-		.auth()
-		.signInWithEmailAndPassword(email, password)
-		.catch(function (error) {
-			// Handle Errors here.
-			var errorCode = error.code;
-			var errorMessage = error.message;
-			// ...
-			console.error(errorCode + ': ' + errorMessage);
-		});
+    firebase
+        .auth()
+        .signInWithEmailAndPassword(email, password)
+        .catch(function (error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // ...
+            console.error(errorCode + ": " + errorMessage);
+        });
 }
 
 function onLogout() {
-	let currentUser = firebase.auth().currentUser;
+    let currentUser = firebase.auth().currentUser;
 
-	if (currentUser) {
-		currentUser.getIdToken().then((idToken) => {
-			httpPostAsync('/logout', 'token=' + idToken, () => {});
-		});
-	}
-	firebase
-		.auth()
-		.signOut()
-		.catch(function (error) {
-			// Handle Errors here.
-			var errorCode = error.code;
-			var errorMessage = error.message;
-			// ...
-			console.error(errorCode + ': ' + errorMessage);
-		});
+    if (currentUser) {
+        currentUser.getIdToken().then((idToken) => {
+            httpPostAsync("/logout", "token=" + idToken, () => {});
+        });
+    }
+    firebase
+        .auth()
+        .signOut()
+        .catch(function (error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // ...
+            console.error(errorCode + ": " + errorMessage);
+        });
 }
 
 function onRegister() {
-	const name = document.getElementById('name').value;
+    const name = document.getElementById("name").value;
 
-	const email = document.getElementById('email').value;
-	const password = document.getElementById('password').value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
-	firebase
-		.auth()
-		.createUserWithEmailAndPassword(email, password)
-		.then((cred) => {
-			if (!cred.user) console.error('Could not register');
-			cred.user.getIdToken().then((token) => {
-				httpPostAsync(
-					'/register',
-					`name=${name}&email=${email}&token=${token}`,
-					(res) => {
-						console.log(res);
-					}
-				);
-			});
-		});
+    firebase
+        .auth()
+        .createUserWithEmailAndPassword(email, password)
+        .then((cred) => {
+            if (!cred.user) console.error("Could not register");
+            cred.user.getIdToken().then((token) => {
+                httpPostAsync(
+                    "/register",
+                    `name=${name}&email=${email}&token=${token}`,
+                    (res) => {
+                        console.log(res);
+                    }
+                );
+            });
+        });
 }
 
 function getCoursesTeaching() {
-	firebase
-		.auth()
-		.currentUser.getIdToken()
-		.then((token) => {
-			httpGetAsync(`/api/getCoursesTeaching?token=${token}`, (res) => {
-				console.log('got the response: ' + res);
-			});
-		});
+    firebase
+        .auth()
+        .currentUser.getIdToken()
+        .then((token) => {
+            httpGetAsync(`/api/getCoursesTeaching?token=${token}`, (res) => {
+                console.log("got the response: " + res);
+            });
+        });
 }
 
 function getCoursesEnrolled() {
-	firebase
-		.auth()
-		.currentUser.getIdToken()
-		.then((token) => {
-			httpGetAsync(`/api/getCoursesEnrolled?token=${token}`, (res) => {
-				console.log('got the response: ' + res);
-			});
-		});
+    firebase
+        .auth()
+        .currentUser.getIdToken()
+        .then((token) => {
+            httpGetAsync(`/api/getCoursesEnrolled?token=${token}`, (res) => {
+                console.log("got the response: " + res);
+            });
+        });
 }
 
 function onPostComment() {
-	let topLeft = {
-		x: 0.1,
-		y: 0.1,
-	};
+    let topLeft = {
+        x: 0.1,
+        y: 0.1,
+    };
 
-	let bottomRight = { x: 0.6, y: 0.6 };
-	firebase
-		.auth()
-		.currentUser.getIdToken()
-		.then((token) => {
-			httpPostAsync(
-				'/api/postComment',
-				`token=${token}&material_id=5fb13023d40c58d4e280811d&user_id=5fb0e2495c07648e7d026226&contents=lolololol&datePosted=${JSON.stringify(
-					new Date()
-				)}&slideNumber=1&topLeft=${JSON.stringify(
-					topLeft
-				)}&bottomRight=${JSON.stringify(bottomRight)}`,
-				(res) => {
-					console.log('got the response: ' + res);
-				}
-			);
-		});
+    let bottomRight = { x: 0.6, y: 0.6 };
+    firebase
+        .auth()
+        .currentUser.getIdToken()
+        .then((token) => {
+            httpPostAsync(
+                "/api/postComment",
+                `token=${token}&material_id=5fb13023d40c58d4e280811d&user_id=5fb0e2495c07648e7d026226&contents=lolololol&datePosted=${JSON.stringify(
+                    new Date()
+                )}&slideNumber=1&topLeft=${JSON.stringify(
+                    topLeft
+                )}&bottomRight=${JSON.stringify(bottomRight)}`,
+                (res) => {
+                    console.log("got the response: " + res);
+                }
+            );
+        });
 }
 
 firebase.auth().onAuthStateChanged(function (user) {
-	if (user) {
-		user.getIdToken().then(function (idToken) {
-			httpPostAsync(
-				'/login',
-				`token=${idToken}&email=${user.email}`,
-				() => {}
-			);
-		});
-		document.getElementById('message').innerHTML = 'Welcome, ' + user.email;
-	} else {
-		document.getElementById('message').innerHTML = 'No user signed in.';
-	}
+    if (user) {
+        user.getIdToken().then(function (idToken) {
+            httpPostAsync(
+                "/login",
+                `token=${idToken}&email=${user.email}`,
+                () => {}
+            );
+        });
+        document.getElementById("message").innerHTML = "Welcome, " + user.email;
+    } else {
+        document.getElementById("message").innerHTML = "No user signed in.";
+    }
 });
