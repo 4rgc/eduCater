@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>eduCater</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
+    <script src="myProfile.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body onload="getUser()">
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item bg-dark">
+                <button type="button" class="btn btn-primary">SignUp</button>
+                <button type="button" class="btn btn-primary">Login</button>
+            </li>
+        </ul>
+    </nav>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item bg-dark">
+                <button type="button" class="btn btn-primary">SignUp</button>
+                <button type="button" class="btn btn-primary">Login</button>
+            </li>
+        </ul>
+    </nav>
+    <!-- Actual content -->
+    <div class="text-center">
+        <h1>eduCater</h1>
+    </div>
+    <form>
+        <div class="container row">
+            <div class="col lg-6">
+                <p id="usertype"><b>Student</b></p>
+                <img class="pfp" src="images/powerpoint-slides/Powerpoint-slides-01.jpg" length=100% width=100%>
+                <button type="button" class="btn-sm btn-primary col lg-2" onclick="changepfp()">Change profile
+                    picture</button>
+            </div>
+            <div class="col lg-6">
+                <label for="uname"><b>Username</b></label>
+                <input id="uname" type="text" placeholder="My Name" name="uname" disabled=true required>
+                <label for=classes><b>My courses</b></label>
+                <ul class="classes">
+                    <li>
+                        <a href="">Course 1</a>
+                    </li>
+                    <li>
+                        <a href="">Course 2</a>
+                    </li>
+                </ul>
+            <button type="button" class="btn-sm btn-primary" id="edit" onclick="editProfile()">Edit profile</button>
+        </div>
+    </form>
+</body>
+
+</html>
