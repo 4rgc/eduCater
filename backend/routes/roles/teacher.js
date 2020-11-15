@@ -29,7 +29,10 @@ router.get("/getPLink", (req, res, next) => {
 
     res.json({
         success: true,
-        link: "/assets/testdoc.pdf",
+        link:
+            id == 0
+                ? "https://educater.s3.ca-central-1.amazonaws.com/HOW+TO+FIND+THE+DENSITY+FUNCTION+OF+A+TRANSFORMATION.docx+(1).pdf"
+                : "/assets/testdoc2.pdf",
     });
 });
 
