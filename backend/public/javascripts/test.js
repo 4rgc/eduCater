@@ -9,7 +9,7 @@ function addCourse() {
 function changePLink() {}
 
 function getPLink() {
-    let id = 10;
+    let id = 0;
 
     httpGetAsync(`/api/getPLink?id=${id}`, (res) => {
         console.log("got the response: " + res);
