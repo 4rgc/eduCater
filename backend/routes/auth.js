@@ -20,9 +20,8 @@ router.post('/login', (req, res, next) => {
 
 router.post('/logout', (req, res, next) => {
 	const token = req.body.token;
-	dbWrapper.getUsersByToken(token).then((user) => {
-		console.log(user);
-		dbWrapper.updateUser(user[0]._id, {
+	dbWrapper.getUserByToken(token).then((user) => {
+		dbWrapper.updateUser(user._id, {
 			token: '',
 		});
 	});
