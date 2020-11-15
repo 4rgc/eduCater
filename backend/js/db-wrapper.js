@@ -10,6 +10,19 @@ let database;
 client.connect().then((db) => (database = db));
 
 module.exports = class DbWrapper {
+	static getUser(_id) {
+		return new Promise((resolve, reject) => {
+			database
+				.db(process.env.DB_NAME)
+				.collection(process.env.DB_COLLEC_USERS)
+				.find({ _id })
+				.toArray((err, res) => {
+					if (err) reject(err);
+					resolve(res[0]);
+				});
+		});
+	}
+
 	static getUsersByName(name) {
 		return new Promise((resolve, reject) => {
 			database
@@ -36,7 +49,7 @@ module.exports = class DbWrapper {
 		});
 	}
 
-	static getUsersByToken(token) {
+	static getUserByToken(token) {
 		return new Promise((resolve, reject) => {
 			database
 				.db(process.env.DB_NAME)
@@ -44,7 +57,7 @@ module.exports = class DbWrapper {
 				.find({ token: token })
 				.toArray((err, res) => {
 					if (err) reject(err);
-					resolve(res);
+					resolve(res[0]);
 				});
 		});
 	}
@@ -81,11 +94,24 @@ module.exports = class DbWrapper {
 		});
 	}
 
+	static getComment(_id) {
+		return new Promise((resolve, reject) => {
+			database
+				.db(process.env.DB_NAME)
+				.collection(process.env.DB_COLLEC_COMMENTS)
+				.find({ _id })
+				.toArray((err, res) => {
+					if (err) reject(err);
+					resolve(res[0]);
+				});
+		});
+	}
+
 	static async insertComment({ _id, name, course, text, slide }) {
 		return new Promise((resolve, reject) => {
 			database
 				.db(process.env.DB_NAME)
-				.collection(process.env.DB_COLLEC_COMMENT)
+				.collection(process.env.DB_COLLEC_COMMENTS)
 				.insertOne(
 					{
 						_id: _id,
@@ -106,7 +132,7 @@ module.exports = class DbWrapper {
 		return new Promise((resolve, reject) => {
 			database
 				.db(process.env.DB_NAME)
-				.collection(process.env.DB_COLLEC_COMMENT)
+				.collection(process.env.DB_COLLEC_COMMENTS)
 				.find({ slide: slide })
 				.toArray((err, res) => {
 					if (err) reject(err);
@@ -121,6 +147,45 @@ module.exports = class DbWrapper {
 				.db(process.env.DB_NAME)
 				.collection(process.env.DB_COLLEC_COMMENT)
 				.find({ _id: _id })
+				.toArray((err, res) => {
+					if (err) reject(err);
+					resolve(res);
+				});
+		});
+	}
+
+	static getMaterial(_id) {
+		return new Promise((resolve, reject) => {
+			database
+				.db(process.env.DB_NAME)
+				.collection(process.env.DB_COLLEC_MATERIALS)
+				.find({ _id: _id })
+				.toArray((err, res) => {
+					if (err) reject(err);
+					resolve(res[0]);
+				});
+		});
+	}
+
+	static getCourse(_id) {
+		return new Promise((resolve, reject) => {
+			database
+				.db(process.env.DB_NAME)
+				.collection(process.env.DB_COLLEC_COURSES)
+				.find({ _id: _id })
+				.toArray((err, res) => {
+					if (err) reject(err);
+					resolve(res[0]);
+				});
+		});
+	}
+
+	static getCourses(params) {
+		return new Promise((resolve, reject) => {
+			database
+				.db(process.env.DB_NAME)
+				.collection(process.env.DB_COLLEC_COURSES)
+				.find(params)
 				.toArray((err, res) => {
 					if (err) reject(err);
 					resolve(res);
