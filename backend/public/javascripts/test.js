@@ -8,7 +8,7 @@ function addCourse() {
 
 function changePLink() {}
 
-function getPLink() {
+function getMaterialLink() {
 	let id = 0;
 
 	httpGetAsync(`/api/getPLink?id=${id}`, (res) => {
@@ -96,6 +96,28 @@ function onRegister() {
 						console.log(res);
 					}
 				);
+			});
+		});
+}
+
+function getCoursesTeaching() {
+	firebase
+		.auth()
+		.currentUser.getIdToken()
+		.then((token) => {
+			httpGetAsync(`/api/getCoursesTeaching?token=${token}`, (res) => {
+				console.log('got the response: ' + res);
+			});
+		});
+}
+
+function getCoursesEnrolled() {
+	firebase
+		.auth()
+		.currentUser.getIdToken()
+		.then((token) => {
+			httpGetAsync(`/api/getCoursesEnrolled?token=${token}`, (res) => {
+				console.log('got the response: ' + res);
 			});
 		});
 }
