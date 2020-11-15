@@ -16,14 +16,19 @@
     <script
      src="main.js">
     </script>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+
+    
   </head>
 
   <body>
+
+    
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item bg-dark">
@@ -43,15 +48,16 @@
     <div class="container-fluid pl-0 ml-0">
       <div class="row">
         <div class="slides col-lg-9 pr-0">
-        <div id="my_pdf_viewer">
 
-          <div id="canvas_container">
+          <div id="my_pdf_viewer">
 
-            <canvas id="pdf_renderer"></canvas>
+            <div id="canvas_container">
+
+              <canvas id="pdf_render"></canvas>
+
+            </div>
 
           </div>
-
-        </div>
 
         <div id="navigation_controls">
 
