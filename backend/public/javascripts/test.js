@@ -24,6 +24,23 @@ function getPLink() {
 	});
 }
 
+function addTeacher() {
+	firebase
+		.auth()
+		.currentUser.getIdToken()
+		.then((token) => {
+			let name = 'Bro Broski';
+
+			httpPostAsync(
+				'/api/addTeacher',
+				`name=${name}&token=${token}`,
+				(res) => {
+					console.log('got the response: ' + res);
+				}
+			);
+		});
+}
+
 function onLogin() {
 	const email = document.getElementById('email').value;
 	const password = document.getElementById('password').value;

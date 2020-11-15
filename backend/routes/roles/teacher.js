@@ -1,23 +1,37 @@
 var express = require('express');
 var router = express.Router();
 
+var middleware = require('../../js/middleware');
 const url = require('url');
 const querystring = require('querystring');
 
-/* GET home page. */
-router.post('/changePLink', function (req, res, next) {
+router.post('/addTeacher', middleware.checkRepPost, function (req, res, next) {
 	//TODO: update the record in the database
 
 	res.json({
-		message: 'New code: ' + req.body.code,
 		success: true,
+		message: 'New teacher: ' + req.body.name,
 	});
 });
 
-router.post('/addCourse', (req, res, next) => {
+/* GET home page. */
+router.post('/changePLink', middleware.checkTeacherPost, function (
+	req,
+	res,
+	next
+) {
+	//TODO: update the record in the database
+
 	res.json({
-		message: 'Add course: ' + req.body.name,
 		success: true,
+		message: 'New code: ' + req.body.code,
+	});
+});
+
+router.post('/addCourse', middleware.checkTeacherPost, (req, res, next) => {
+	res.json({
+		success: true,
+		message: 'Add course: ' + req.body.name,
 	});
 });
 
