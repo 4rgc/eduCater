@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>eduCater</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
+    <script src="addLecture.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <!-- Nav bar -->
+    <div class="nav-container">
+        <div class="nav-wrapper">
+            <div class="left-side">
+                <div class="nav-link-wrapper nav-option-selected">
+                    <a class="nav-text-selected" href="main.html">Course</a>
+                </div>
+                <div class="nav-link-wrapper nav-option">
+                    <a href="main.html">Selection</a>
+                </div>
+                <div class="nav-link-wrapper nav-option">
+                    <a href="myProfile.html">Profile</a>
+                </div>
+            </div>
+
+            <div class="right-side">
+                <div>
+                    <div class="imgContainer">
+                        <img src="./images/logo-transparent.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Actual content -->
+    <div class="text-center">
+        <h1>eduCater</h1>
+    </div>
+    <form>
+        <h2 id="course"><b>Course 1</b></h2>
+        <div id="lectures">
+            <button type="button" class="btn-sm btn-primary" id="add-lecture" onclick="uploadSlides()">Upload Lecture
+                Slides</button>
+            <p><small><i>Accepted file types: .ppt .pdf</i></small></p>
+        </div>
+    </form>
+</body>
+
+</html>
