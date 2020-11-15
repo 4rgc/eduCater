@@ -63,7 +63,11 @@ function onLogout() {
 firebase.auth().onAuthStateChanged(function (user) {
 	if (user) {
 		user.getIdToken().then(function (idToken) {
-			httpPostAsync('/login', 'token=' + idToken, () => {});
+			httpPostAsync(
+				'/login',
+				`token=${idToken}&email=${user.email}`,
+				() => {}
+			);
 		});
 		document.getElementById('message').innerHTML = 'Welcome, ' + user.email;
 	} else {
