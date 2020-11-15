@@ -127,7 +127,7 @@ li {
 }
 
 #comments {
-	background-color: var(--lightColour);
+	background-color: var(--white);
 }
 
 #signup:hover {
