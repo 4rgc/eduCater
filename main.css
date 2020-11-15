@@ -135,10 +135,6 @@ button:hover{
 
 }
 
-p.comment {
-
-}
-
 div.comment > p {
     font-family: var(--mainFont);
     color: var(--medColour);
