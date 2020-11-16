@@ -122,7 +122,7 @@ function getCoursesEnrolled() {
         });
 }
 
-function onPostComment() {
+function onPostComment(course_id, user_id, slide) {
     let topLeft = {
         x: 0.1,
         y: 0.1,
@@ -135,9 +135,9 @@ function onPostComment() {
         .then((token) => {
             httpPostAsync(
                 "/api/postComment",
-                `token=${token}&material_id=5fb13023d40c58d4e280811d&user_id=5fb0e2495c07648e7d026226&contents=lolololol&datePosted=${JSON.stringify(
+                `token=${token}&material_id=${course_id}&user_id=${user_id}&datePosted=${JSON.stringify(
                     new Date()
-                )}&slideNumber=1&topLeft=${JSON.stringify(
+                )}&slideNumber=${slide}&topLeft=${JSON.stringify(
                     topLeft
                 )}&bottomRight=${JSON.stringify(bottomRight)}`,
                 (res) => {
@@ -157,6 +157,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             );
         });
         document.getElementById("message").innerHTML = "Welcome, " + user.email;
+        console.log("Welcome, " + user.email);
     } else {
         document.getElementById("message").innerHTML = "No user signed in.";
     }

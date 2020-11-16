@@ -80,6 +80,31 @@ document.getElementById('go_previous')
                         document.getElementById("current_page")
                                 .value = desiredPage;
                         render();
+        }
+    }
+});
+
+function onPostComment(material_id, user_id, slide) {
+    let topLeft = {
+        x: 0.1,
+        y: 0.1,
+    };
+
+    let bottomRight = { x: 0.6, y: 0.6 };
+    firebase
+        .auth()
+        .currentUser.getIdToken()
+        .then((token) => {
+            httpPostAsync(
+                "/api/postComment",
+                `token=${token}&material_id=${material_id}&user_id=${user_id}&datePosted=${JSON.stringify(
+                    new Date()
+                )}&slideNumber=${slide}&topLeft=${JSON.stringify(
+                    topLeft
+                )}&bottomRight=${JSON.stringify(bottomRight)}`,
+                (res) => {
+                    console.log("got the response: " + res);
                 }
-            }
+            );
         });
+}

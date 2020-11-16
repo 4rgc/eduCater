@@ -1,10 +1,12 @@
 class Comment
 {
-    constructor(userName,comment,id)
+    constructor(userName,comment,id, slide)
     {
         this.userName = userName;
         this.comment = comment;
         this.id = id;
+        this.slide = slide;
+        this.material_id = "udewqa2234gf123o8";
     }
     replyBtn(id)
     {
@@ -28,7 +30,7 @@ class Comment
         var div2 = document.createElement("DIV");
         div2.className = 'media-body';
         div2.id = guidGenerator(); 
-        div2.innerHTML = div2.id + '<h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>';
+        div2.innerHTML = '<h4>'+this.userName + ' <small><i>Posted on '+ new Date().toISOString().split("T")[0];+'</i></small></h4>';
         var par = document.createElement('p'); 
         par.appendChild(this.comment);
         div2.appendChild(par); 
@@ -65,8 +67,17 @@ document.getElementById("comment_block").addEventListener("input", function() {
     if (nameInput != "") { 
         document.getElementById('comment').classList.remove("disabled");
         document.getElementById('comment').removeAttribute("disabled");
+        console.log("Hello world!");
     } else {
         document.getElementById('comment').setAttribute("disabled", null);
         document.getElementById('comment').classList.add("disabled");
     }
+});
+
+document.getElementById("pdf_render").addEventListener('', function() {
+
+    console.log(myState.currentPage);
+
+
+
 });
