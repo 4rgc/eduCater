@@ -13,7 +13,30 @@ function changepfp() {
 }
 
 function getUser() {
-    // TODO: gets user JSON object and displays proper information about them
+    var userTypeBox = document.getElementById("usertype");
+    var usernameBox = document.getElementById("uname");
+    var courseList = document.getElementById("courses");
+    var profilePic = document.getElementById("pfp");
+    firebase.auth().currentUser.getIdToken()
+        .then((token) => {
+            httpPostAsync("/getUser", (user) => {
+                if (user) {
+                    usernameBox.placeholder = user.name;
+                    profilePic.setAttribute("src", user.profilePic);
+                    if (user.role == "t") {
+                        userTypeBox.innerHTML = "Teacher";
+                        var addLectureButton = document.getElementById("info").appendChild("button");
+                        addLectureButton.setAttribute("class", "btn-sm btn-primary");
+                        addLectureButton.setAttribute("href", "addLecture.html");
+                        addLectureButton.innerHTML = "Add Lecture";
+                        
+                    } else {
+                        userTypeBox.innerHTML = "Student";
+                    }
+                    
+                }
+            });            
+    });
 }
 
 firebase.auth().onAuthStateChanged(function (user) {
