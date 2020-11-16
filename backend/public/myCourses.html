@@ -9,14 +9,22 @@
     <link rel="stylesheet" href="./stylesheets/main.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
-    <script src="./javascripts/myCourses.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase.js"></script>
+    <script>
+        var config = {
+            apiKey: "AIzaSyCYkmfBgqP88evrb2ZK2ajiQI5El0_DWGA",
+            authDomain: "educater-295704.firebaseapp.com",
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="./javascripts/front.js"></script>
     <script src="./javascripts/myProfile.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 
-<body style="background-image: url('URL TO GO HERE');">
+<body >
     <!-- NAV BAR BEGIN -->
     <div class="nav-container">
         <div class="nav-wrapper">
@@ -77,16 +85,6 @@
         </div>
         </div>
     </form>
-    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase.js"></script>
-    <script>
-        var config = {
-            apiKey: "AIzaSyCYkmfBgqP88evrb2ZK2ajiQI5El0_DWGA",
-            authDomain: "educater-295704.firebaseapp.com",
-        };
-        firebase.initializeApp(config);
-    </script>
-    <script src="/javascripts/front.js"></script>
-    <script src="./javascripts/front.js"></script>
 </body>
 
 </html>
