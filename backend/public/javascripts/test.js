@@ -158,6 +158,21 @@ function onPostComment(course_id, user_id, slide) {
         });
 }
 
+function getManyComments() {
+    firebase
+        .auth()
+        .currentUser.getIdToken()
+        .then((token) => {
+            httpPostAsync(
+                "/api/getMaterialComments",
+                `token=${token}&material_id=5fb12e415c07648e7d026230`,
+                (res) => {
+                    console.log("got the response: " + res);
+                }
+            );
+        });
+}
+
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         user.getIdToken().then(function (idToken) {
