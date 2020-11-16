@@ -13,49 +13,35 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase.js"></script>
+    <script>
+        var config = {
+            apiKey: "AIzaSyCYkmfBgqP88evrb2ZK2ajiQI5El0_DWGA",
+            authDomain: "educater-295704.firebaseapp.com",
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="./javascripts/nav.js"></script>
+    <script src="./javascripts/front.js"></script>
+
 </head>
 
-<body onload="getUser()">
-    <!-- NAV BAR BEGIN -->
-     <div class="nav-container">
-        <div class="nav-wrapper">
-            <div class="left-side">
-                <div class="nav-link-wrapper nav-option">
-                    <a href="main.html">Course</a>
-                </div>
-                <div class="nav-link-wrapper nav-option">
-                    <a href="myCourses.html">Selection</a>
-                </div>
-                <div class="nav-link-wrapper nav-option-selected">
-                    <a class="nav-text-selected" href="myProfile.html">Profile</a>
-                </div>
-            </div>
-
-            <div class="right-side">
-                <div>
-                    <div class="imgContainer">
-                        <img src="./images/logo-transparent.png">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- NAV BAR END -->
-
+<body onload="addNav()">
     <!-- Actual content -->
     <form>
         <div class="container row">
             <div class="col lg-6">
                 <p id="usertype"><b>Student</b></p>
-                <img class="pfp" src="images/powerpoint-slides/Powerpoint-slides-01.jpg" length=100% width=100%>
+                <img class="pfp" id="pfp" src="images/powerpoint-slides/Powerpoint-slides-01.jpg" length=100%
+                    width=100%>
                 <button type="button" class="btn-sm btn-primary col lg-2" onclick="changepfp()">Change profile
                     picture</button>
             </div>
-            <div class="col lg-6">
+            <div id="info" class="col lg-6">
                 <label for="uname"><b>Username</b></label>
                 <input id="uname" type="text" placeholder="My Name" name="uname" disabled=true required>
                 <label for=classes><b>My courses</b></label>
-                <ul class="classes">
+                <ul class="courses">
                     <li>
                         <a href="">Course 1</a>
                     </li>
@@ -65,7 +51,7 @@
                 </ul>
                 <button type="button" class="btn-sm btn-primary" id="edit" onclick="editProfile()">Edit profile</button>
                 <!-- Professor-exclusive! Add lecture recording button -->
-                <button type="button" class="btn-sm btn-primary" id="add-lecture" hidden>Add Lecture</button>
+                <button type="button" class="btn-sm btn-primary" id="add-lecture">Add Lecture</button>
             </div>
     </form>
     <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase.js"></script>
@@ -76,8 +62,8 @@
         };
         firebase.initializeApp(config);
     </script>
-    <script src="/javascripts/front.js"></script>
     <script src="./javascripts/front.js"></script>
+    <script src="./javascripts/nav.js"></script>
 </body>
 
 </html>
