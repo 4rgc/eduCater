@@ -193,6 +193,7 @@ li {
 
 .nav-link-wrapper a:hover {
 	color: var(--lightestHue);
+	text-decoration: none;
 }
 
 .nav-option {
@@ -237,5 +238,5 @@ li {
 .imgContainer {
 	/* display: inline-block; */
 	float: left;
-	background-color: #1e1e26;
+	background-color: var(--darkColour);
 }

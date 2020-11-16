@@ -19,7 +19,9 @@ function getUser() {
     var profilePic = document.getElementById("pfp");
     firebase.auth().currentUser.getIdToken()
         .then((token) => {
-            httpPostAsync("/getUser", (user) => {
+            console.log("ihwfoiheihowfe");
+            httpPostAsync(`/getUser?token=${token}`, (user) => {
+                console.log("In the method");
                 if (user) {
                     usernameBox.placeholder = user.name;
                     profilePic.setAttribute("src", user.profilePic);

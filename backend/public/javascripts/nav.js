@@ -8,17 +8,17 @@ function addNav() {
     var texts = ["Course", "Selection", "Profile"];
     var tags = [];
     // Link tags
-    for (i=0; i<links.length; i++) {
+    for (i = 0; i < links.length; i++) {
         var newTag = document.createElement("a");
         newTag.href = links[i];
         newTag.innerHTML = texts[i];
         if (links[i] == page) newTag.setAttribute("class", "nav-text-selected");
-        tags.push(newTag); 
+        tags.push(newTag);
     }
     var bigTag = document.createElement("div")
     bigTag.setAttribute("class", "left-side");
     // Div and bigger div tag
-    for (i=0; i<tags.length; i++) {
+    for (i = 0; i < tags.length; i++) {
         var newTag = document.createElement("div")
         if (links[i] == page) newTag.setAttribute("class", "nav-link-wrapper nav-option-selected");
         else newTag.setAttribute("class", "nav-link-wrapper nav-option");
@@ -55,24 +55,29 @@ function addNav() {
     bigTag.appendChild(newTag);
     var myBody = document.getElementsByTagName("body")[0];
     myBody.prepend(bigTag);
-    // Alter page based on if user is there
-    var user = firebase.auth().currentUser
-    if (user) {
-        user.getIdToken()
-        .then((token) => {
-            httpPostAsync(
-                `/getUser?token=${token}`,
-                (myUser) => {
-                    if (myUser.success) {
-                        var userGreet = document.getElementById("user-greeting");
-                        userGreet.innerHTML = `Hello, ${myUser.name}`;
+}
 
-                    }
+const updateNav = firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+        user.getIdToken().then(function (idToken) {
+            httpPostAsync(
+                "/login",
+                `token=${idToken}&email=${user.email}`,
+                () => {
+                    console.log("yo");
+                    httpGetAsync(
+                        `/getUser?token=${idToken}`,
+                        (myUser) => {
+                            myUser = JSON.parse(myUser);
+                            if (myUser.success) {
+                                var userGreet = document.getElementById("user-greeting");
+                                userGreet.innerHTML = `Hello, ${myUser.user.name}`;
+                            }
+                        }
+                    );
                 }
             );
         });
-    } else {
-        // No user signed in
-        
+        console.log("Welcome, " + user.email);
     }
-}
+});
