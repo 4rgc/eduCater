@@ -157,6 +157,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             );
         });
         document.getElementById("message").innerHTML = "Welcome, " + user.email;
+        console.log("Welcome, " + user.email);
     } else {
         document.getElementById("message").innerHTML = "No user signed in.";
     }

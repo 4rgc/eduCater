@@ -9,11 +9,18 @@
   <link rel="stylesheet" href="./stylesheets/main.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
-
-  <script src="./javascripts/login.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase.js"></script>
+  <script>
+    var config = {
+      apiKey: "AIzaSyCYkmfBgqP88evrb2ZK2ajiQI5El0_DWGA",
+      authDomain: "educater-295704.firebaseapp.com",
+    };
+    firebase.initializeApp(config);
+  </script>
+  <script src="./javascripts/login.js"></script>
 </head>
 
 <body>
@@ -27,27 +34,28 @@
 
     <div class="container">
 
-      <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+      <label for="email"><b>Email</b></label>
+      <input type="email" id="email" placeholder="Enter Email" name="email" required>
 
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-
-      <div id="email" class="email">
-
-        <label for="eml"><b>Email</b></label>
-        <input type="email" placeholder="Enter Email" name="eml" required>
-
-      </div>
-      <button class="lgbutton" type="submit">Login</button>
+      <input type="password" id="password" placeholder="Enter Password" name="psw" required>
 
       <label>
         <input type="checkbox" checked="checked" name="remember"> Remember me
       </label>
-      <div class="subox">
-        <label id="signup" type="button" onclick="signUp()"> Don't have an account? Click here to sign up!</label>
+      <div class="register">
+        <label id="register" type="button" value="register" onclick="onRegister()"> Don't have an account? Click here to register!</label>
       </div>
 
+      <input type="button" value="Log in" id="login" onclick="onLogin()">
+      <input type="button" value="Log out" id="logout" onclick="onLogout()">
+        <input type="button" value="Register" id="register" onclick="onRegister()">
+
+      </div>
+      <button class="lgbutton" type="submit">Login</button>
+
+      </div>
+      
     </div>
 
     <div class="container" style="background-color:#f1f1f1">
@@ -55,14 +63,6 @@
     </div>
 
   </form>
-  <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase.js"></script>
-  <script>
-    var config = {
-      apiKey: "AIzaSyCYkmfBgqP88evrb2ZK2ajiQI5El0_DWGA",
-      authDomain: "educater-295704.firebaseapp.com",
-    };
-    firebase.initializeApp(config);
-  </script>
   <script src="/javascripts/front.js"></script>
   <script src="./javascripts/front.js"></script>
 </body>
