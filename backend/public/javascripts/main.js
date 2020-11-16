@@ -22,7 +22,6 @@ function render() {
         canvas.style.height = "50%";
         canvas.style.width = "80%";
         parent.style.padding = "2%";
-
         page.render({
             canvasContext: ctx,
             viewport: viewport,

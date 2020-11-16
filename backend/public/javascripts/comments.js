@@ -31,7 +31,7 @@ class Comment
         var div2 = document.createElement("DIV");
         div2.className = 'media-body';
         div2.id = guidGenerator(); 
-        div2.innerHTML = '<h4>'+this.userName + ' <small><i>Posted on '+ this.datePosted.split("T")[0];+'</i></small></h4>';
+        div2.innerHTML = '<h4>'+this.userName + ' <small><i>Posted on '+ new Date().toISOString().split("T")[0];+'</i></small></h4>';
         var par = document.createElement('p'); 
         par.appendChild(this.comment);
         div2.appendChild(par); 
@@ -56,6 +56,7 @@ function submitComment()
     document.getElementById(comments.id).appendChild(c.createComment());
     document.getElementById('comment').setAttribute("disabled", null);
     text.value = '';
+    onPostComment(c.userName, c.slide, c.comment); 
 }
 function  repy(id)
 {
@@ -76,37 +77,13 @@ document.getElementById("comment_block").addEventListener("input", function() {
 });
 
 document.getElementById("go_previous").addEventListener("click", (e) => {
-    var comment_div = document.getElementById('comments');
-    getManyComments().then((res) => {
-        var obj = JSON.parse(res); 
-        var com = obj.comments; 
-        console.log(com);
-        for(var c in com)
-        {
-           //if(c.slideNumber == myState.currentPage)
-            //{
-                var newC = new Comment(c.user_id, c.contents,c._id ,c.datePosted); 
-                console.log(c[0].contents);
-               //document.getElementById(comment_div.id).appendChild(newC.createComment());
-            //}    
-        }
-    })
     
+    getpageComments();
 
 });
 
 document.getElementById("go_next").addEventListener("click", (e) => {
-    var comment_div = document.getElementById('comments');
-    getManyComments().then((res) => {
-        for(var c in JSON.parse(res))
-        {
-            if(c.slideNumber == myState.currentPage)
-            {
-                var newC = new Comment(c.user_id, c.contents,c._id ,c.datePosted); 
-                document.getElementById(comment_div.id).appendChild(newC.createComment());
-            }    
-        }
-    })
+    getpageComments();
 });
 
 
@@ -125,4 +102,43 @@ function getManyComments() {
             });
         })
     }
+
+
+    function onPostComment(userName, slide,com) {
+        firebase
+            .auth()
+            .currentUser.getIdToken()
+            .then((token) => {
+                httpPostAsync(
+                    "/api/postComment",
+                    `token=${token}&material_id=5fb12e415c07648e7d026230&user_id=${userName}&contents=${com}&datePosted=${JSON.stringify(
+                        new Date()
+                    )}&slideNumber=${slide}`,
+                    (res) => {
+                        console.log("got the response: " + res);
+                    }
+                );
+            });
+    }
+
+function getpageComments()
+{
+    document.getElementById('comments').innerHTML = "";
+    var comment_div = document.getElementById('comments');
+    getManyComments().then((res) => {
+        var obj = JSON.parse(res); 
+        var c = obj.comments; 
+        console.log(c[0].contents);
+        for(var i = 0; i < c.length; i++)
+        {
+           if(c[i].slideNumber == myState.currentPage)
+            {
+                var newC = new Comment(c[i].name, c[i].contents,c[i]._id); 
+                console.log(c[i].contents);
+               document.getElementById(comment_div.id).appendChild(newC.createComment());
+            }    
+        }
+    })
+    
+}
 
