@@ -1,10 +1,12 @@
 class Comment
 {
-    constructor(userName,comment,id)
+    constructor(userName,comment,id, slide)
     {
         this.userName = userName;
         this.comment = comment;
         this.id = id;
+        this.slide = slide;
+        this.material_id = "udewqa2234gf123o8";
     }
     replyBtn(id)
     {
