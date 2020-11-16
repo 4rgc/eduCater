@@ -134,6 +134,23 @@ li {
     text-decoration: underline;
 }
 
+.logout{
+	display: inline;
+	padding-top: 3px;
+}
+
+#lgout{
+	margin: 10px;
+	padding: 5px;
+	border: 2px white;
+	background-color: white;
+	color: black;
+}
+#lgout:hover{
+	text-decoration: none;
+	opacity: 0.8;
+}
+
 /* ********************************************* */
 /* ********************************************* */
 /* APPENDED CSS */
