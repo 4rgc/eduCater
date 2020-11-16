@@ -91,3 +91,15 @@ function onPostComment(material_id, user_id, slide) {
             );
         });
 }
+firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+        user.getIdToken().then(function (idToken) {
+            httpPostAsync(
+                "/login",
+                `token=${idToken}&email=${user.email}`,
+                () => {}
+            );
+        });
+        console.log("Welcome, " + user.email);
+    }
+});
