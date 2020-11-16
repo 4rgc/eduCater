@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>eduCater</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./stylesheets/main.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
+    <script src="./javascripts/myProfile.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase.js"></script>
+    <script>
+        var config = {
+            apiKey: "AIzaSyCYkmfBgqP88evrb2ZK2ajiQI5El0_DWGA",
+            authDomain: "educater-295704.firebaseapp.com",
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="./javascripts/nav.js"></script>
+    <script src="./javascripts/front.js"></script>
+
+</head>
+
+<body onload="addNav()">
+    <!-- Actual content -->
+    <form onload="getUser()">
+        <div class="container row">
+            <div class="col lg-6">
+                <p id="usertype"><b>Student</b></p>
+                <img class="pfp" id="pfp" src="images/powerpoint-slides/Powerpoint-slides-01.jpg" length=100%
+                    width=100%>
+                <button type="button" class="btn-sm btn-primary col lg-2" onclick="changepfp()">Change profile
+                    picture</button>
+            </div>
+            <div id="info" class="col lg-6">
+                <label for="uname"><b>Username</b></label>
+                <input id="uname" type="text" placeholder="My Name" name="uname" disabled=true required>
+                <label for=classes><b>My courses</b></label>
+                <ul class="courses">
+                    <li>
+                        <a href="">Course 1</a>
+                    </li>
+                    <li>
+                        <a href="">Course 2</a>
+                    </li>
+                </ul>
+                <button type="button" class="btn-sm btn-primary" id="edit" onclick="editProfile()">Edit profile</button>
+                <!-- Professor-exclusive! Add lecture recording button -->
+                <button type="button" class="btn-sm btn-primary" id="add-lecture">Add Lecture</button>
+            </div>
+    </form>
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase.js"></script>
+    <script>
+        var config = {
+            apiKey: "AIzaSyCYkmfBgqP88evrb2ZK2ajiQI5El0_DWGA",
+            authDomain: "educater-295704.firebaseapp.com",
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="./javascripts/front.js"></script>
+    <script src="./javascripts/nav.js"></script>
+</body>
+
+</html>
