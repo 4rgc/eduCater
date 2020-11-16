@@ -62,9 +62,9 @@ router.get(
             });
         }
 
-        dbWrapper.getMaterial(material_id).then((material) => {
+        dbWrapper.getMaterial(new ObjectID(material_id)).then((material) => {
             if (!material)
-                res.json({
+                return res.json({
                     success: false,
                     message: "Material with this id doesn't exist",
                 });

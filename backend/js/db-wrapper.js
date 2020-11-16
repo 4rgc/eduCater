@@ -153,7 +153,7 @@ module.exports = class DbWrapper {
             database
                 .db(process.env.DB_NAME)
                 .collection(process.env.DB_COLLEC_COMMENTS)
-                .find({ _id: "" })
+                .find({ _id: { $in: ids } })
                 .toArray((err, res) => {
                     if (err) reject(err);
                     resolve(res);

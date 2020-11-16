@@ -163,9 +163,8 @@ function getManyComments() {
         .auth()
         .currentUser.getIdToken()
         .then((token) => {
-            httpPostAsync(
-                "/api/getMaterialComments",
-                `token=${token}&material_id=5fb12e415c07648e7d026230`,
+            httpGetAsync(
+                `/api/getMaterialComments?token=${token}&material_id=5fb12e415c07648e7d026230`,
                 (res) => {
                     console.log("got the response: " + res);
                 }
