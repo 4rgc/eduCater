@@ -9,7 +9,7 @@ const dbWrapper = require("../js/db-wrapper");
 router.post("/login", (req, res, next) => {
     const email = req.body.email;
     const token = req.body.token;
-    dbWrapper.getUsersByEmail(email).then((user) => {
+    dbWrapper.getUserByEmail(email).then((user) => {
         console.log(user);
         dbWrapper.updateUser(user._id, {
             token: token,
