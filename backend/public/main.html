@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>eduCater</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="./stylesheets/main.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.0.2/firebase.js"></script>
+	<script src="./javascripts/nav.js"></script>
+	<script>
+		var config = {
+			apiKey: "AIzaSyCYkmfBgqP88evrb2ZK2ajiQI5El0_DWGA",
+			authDomain: "educater-295704.firebaseapp.com",
+		};
+		firebase.initializeApp(config);
+	</script>
+</head>
+
+<body class="back-ground" onload="addNav()">
+	<div class="container-fluid" style="margin-top:80px">
+		<div class="row">
+			<div class="slides col-xl-8" id="pdf">
+				<div id="my_pdf_viewer">
+					<div id="canvas_container">
+						<canvas id="pdf_render"></canvas>
+					</div>
+				</div>
+				<div id="navigation_controls">
+					<button id="go_previous">Previous</button>
+					<input id="current_page" value="1" type="number">
+					<button id="go_next">Next</button>
+				</div>
+			</div>
+			<div class="col-xl-3">
+				<div class="row border" id="comments">
+				</div>
+				<div class='row'>
+					<div class='col-xl-12'>
+						<div class='form-group'>
+							<br>
+							<textarea class="form-control rounded" rows="5" id="comment_block" name="text"
+								style="resize: none;"></textarea>
+						</div>
+						<button onclick="submitComment()" type="button" id="comment" class="btn btn-primary disabled"
+							disabled>Comment</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js"></script>
+		<script src="./javascripts/main.js"></script>
+		<script src="./javascripts/comments.js"></script>
+		<script src="/javascripts/front.js"></script>
+</body>
+
+</html>
